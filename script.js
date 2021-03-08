@@ -42,7 +42,7 @@ document.getElementById("search").addEventListener("click", function () {
   button1.innerHTML = "Movie";
   card.appendChild(button1);
   const movieApi = "?i=tt3896198&apikey=c68b0b27";
-  let movieUrl = `http://www.omdbapi.com/${movieApi}&s=${input}`;
+  let movieUrl = `https://www.omdbapi.com/${movieApi}&s=${input}`;
   button1.addEventListener("click", function () {
     fetch(movieUrl)
       .then((response) => response.json())
@@ -62,7 +62,7 @@ document.getElementById("search").addEventListener("click", function () {
   card.appendChild(button2);
   const giphyApi = "WXeYPTmzJJLhsLNX7K7gpnex8Qeb9XuF";
   const limit = 5;
-  let url = `http://api.giphy.com/v1/stickers/search?q=${input}&api_key=${giphyApi}&limit=${limit}`;
+  let url = `https://api.giphy.com/v1/stickers/search?q=${input}&api_key=${giphyApi}&limit=${limit}`;
   button2.addEventListener("click", function () {
     fetch(url)
       .then((response) => response.json())
@@ -83,6 +83,9 @@ document.getElementById("search").addEventListener("click", function () {
   button3.classList.add("btn", "btn-danger");
   button3.innerHTML = "Remove";
   card.appendChild(button3);
+  button3.addEventListener("click", function () {
+    document.getElementById("display").remove();
+  });
 
   document.getElementById("cards").appendChild(card);
 });
